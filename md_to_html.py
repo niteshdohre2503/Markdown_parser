@@ -26,8 +26,8 @@ def reg(result):
     subst_i = "<em>\\3</em>"
 
     #ordered list
-    regex_ol = r"(^(\s*)(\d+\.\s+)(.*))"
-    subst_ol = "<p>\\1</p>"
+    regex_ol = r"(^(\d+\.\s+)(.*))"
+    subst_ol = "<li>\\1<li>"
 
    
     

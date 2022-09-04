@@ -17,7 +17,7 @@ class Finally(tk.Tk):
         super().__init__()
         self.title("MY WIKI")
         self.geometry("1460x820")
-        self.wm_iconbitmap("1.ico")
+        #self.wm_iconbitmap("1.ico")
 
         
         self.edit_this_var=""
@@ -149,12 +149,12 @@ class Finally(tk.Tk):
     # initializing top frame################################################################################################
 
     def initialize_top_frame(self):
-        img = Image.open("1.png")
-        resize_img = img.resize((60 ,55))
-        img = ImageTk.PhotoImage(resize_img)
-        image_label=Label(self.top_frame,image=img, padx=1000)
-        image_label.grid(row=0, column=1,sticky = W, pady = 2)
-        self.image_label=img
+        # img = Image.open("1.png")
+        # resize_img = img.resize((60 ,55))
+        # img = ImageTk.PhotoImage(resize_img)
+        # image_label=Label(self.top_frame,image=img, padx=1000)
+        # image_label.grid(row=0, column=1,sticky = W, pady = 2)
+        # self.image_label=img
         heading=Label(self.top_frame, text="OUR-PEDIA", font="Algerian 34 bold", bg="lightblue")
         heading.grid(row=0, column=2,sticky = W, pady = 10, padx=600)
 
@@ -180,7 +180,7 @@ class Finally(tk.Tk):
 
     def initialize_middle_frame(self):
 
-        img1 = ImageTk.PhotoImage(Image.open("light.jpg"))
+        # img1 = ImageTk.PhotoImage(Image.open("light.jpg"))
         self.Read_renderer=HTMLScrolledText(self.middle_frame, html="Here the selected article will appear",container=self, 
                                      background="lightpink", fg="white",state="disabled", width="70", height="44")
         self.Read_renderer.grid(sticky = W, pady = 2)
@@ -194,7 +194,7 @@ class Finally(tk.Tk):
 
         self.left_label=HTMLScrolledText(self.left_frame, container=self, width="30", height="44")
 
-        path="E:\SL_Project_mywiki\COP702_1\database_SL"
+        path="/home/anurag/work/Markdown_parser"
         dir_list=os.listdir(path)
 
         list_of_articles="𝙻𝙸𝚂𝚃 𝙾𝙵 𝙰𝚁𝚃𝙸𝙲𝙻𝙴𝚂 <br> <br>"

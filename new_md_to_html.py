@@ -28,8 +28,15 @@ def new_reg(result, not_to_link):
     subst_i = "<em>\\3</em>"
 
     #ordered list
-    regex_ol = r"(^(\s*)(\d+\.\s+)(.*))"
-    subst_ol = "<p>\\1</p>"
+    # regex_ol = r"(^(\s*)(\d+\.\s+)(.*))"
+    # subst_ol = "<p>\\1</p>"
+
+    #unordered list 
+    regex_ul = r"(^(\W{1})(\s)(.*)(?:$)?)+"
+    subst_ul = "<ul>\\n\\4</ul>\\n"
+
+   
+    
 
     #linking while reading
     path=r'E:\\SL_Project_mywiki\\COP702_1\\database_SL\\'
@@ -49,7 +56,7 @@ def new_reg(result, not_to_link):
     result = re.sub(regex_ib, subst_ib, result, 0, re.MULTILINE)
     result = re.sub(regex_b, subst_b, result, 0, re.MULTILINE)
     result = re.sub(regex_i, subst_i, result, 0, re.MULTILINE)
-    result = re.sub(regex_ol, subst_ol, result, 0, re.MULTILINE)
+    result = re.sub(regex_ul, subst_ul, result, 0, re.MULTILINE)
 
     
     return result

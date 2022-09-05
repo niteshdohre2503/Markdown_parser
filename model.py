@@ -13,7 +13,9 @@ class Model():
 
     def __init__(self, controller=None):
         self.controller=controller
-        self.path = "E:\SL_Project_mywiki\COP702_1\database_SL"
+        
+        dir = os.path.dirname(os.path.abspath(__file__))
+        self.path = dir+"\database_SL"
 
     def fetchDirectory(self):
         dir_list=os.listdir(self.path)
@@ -32,6 +34,6 @@ class Model():
         return stuff
     
     def generate_html(self,file_path):
-        file_name = file_path[42:-3]
+        file_name = file_path[49:-3]
         stuff = self.fetch_text(file_path)
         return new_reg(stuff,file_name)

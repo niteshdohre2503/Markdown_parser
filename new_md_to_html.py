@@ -1,4 +1,3 @@
-from tkinter import StringVar
 import regex as re
 import os
 
@@ -28,29 +27,35 @@ def new_reg(result, not_to_link):
     subst_i = "<em>\\3</em>"
 
     #ordered list
-    regex_ol = r"(^(\s*)(\d+\.\s+)(.*))"
-    subst_ol = "<p>\\1</p>"
+    # regex_ol = r"(^(\d+\.)(\s)(.*)(?:$)?)+"
+    # subst_ol = "<p>\\1</p>"
 
+    regex_ul = r"(^(\W{1})(\s)(.*)(?:$)?)+"
+    subst_ul = "<ul>\\n\\4</ul>\\n"
+    
     #linking while reading
-    path=r'E:\\SL_Project_mywiki\\COP702_1\\database_SL\\'
+    path=r'E:\\SL_Project_mywiki\\Markdown_parser\\database_SL\\'
+    dir_list=os.listdir(path)
     dir_list=os.listdir(path)
     
+    # absolute names of the files, removing ".md" extension from the name
     for i in range(len(dir_list)):
         dir_list[i]=dir_list[i][:-3]
     
+    #iterating through the given string, once for every filename 
     for word in dir_list:
         if word!=not_to_link:
             regex_link = re.compile(word)
             result = regex_link.sub(r'<a href = "' + path + word + r'.md">' + word + r'</a>', result)
     ######################################################################################################
+
     result = re.sub(regex_h1, subst_h1, result, 0, re.MULTILINE)
     result = re.sub(regex_h2, subst_h2, result, 0, re.MULTILINE)
     result = re.sub(regex_h3, subst_h3, result, 0, re.MULTILINE)
     result = re.sub(regex_ib, subst_ib, result, 0, re.MULTILINE)
     result = re.sub(regex_b, subst_b, result, 0, re.MULTILINE)
     result = re.sub(regex_i, subst_i, result, 0, re.MULTILINE)
-    result = re.sub(regex_ol, subst_ol, result, 0, re.MULTILINE)
-
+    #result = re.sub(regex_ol, subst_ol, result, 0, re.MULTILINE)
+    result = re.sub(regex_ul, subst_ul, result, 0, re.MULTILINE)
     
     return result
-

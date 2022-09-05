@@ -199,16 +199,8 @@ class HLinkSlot():
         # webbrowser.open(self.URL)
         self.container.opened=True
         self.container.edit_this_var=self.URL
-        
-       
-        text_file=open(self.URL,'r' )
-        stuff=text_file.read()
 
-        if stuff!="":
-            stuff=new_reg(stuff,self.URL[42:-3])
-            self.container.Read_renderer.set_html(stuff)
-        else:
-            self.container.Read_renderer.set_html("This article is <b>blank</b>, you can edit it though !!")
+        self.container.read_for_middle_frame(self.URL)
 
         #print(stuff)
         self._w.tag_config(self.tag_name)

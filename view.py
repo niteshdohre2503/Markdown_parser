@@ -71,8 +71,9 @@ class View(tk.Tk):
             with open(path, 'w') as f:
                 f.write(self.text_area.get('1.0', tk.END))
             
-            # for updating the list of articles on left frame
-            path="E:\SL_Project_mywiki\COP702_1\database_SL"
+
+            dir = os.path.dirname(os.path.abspath(__file__))
+            path = dir+"\database_SL"
             dir_list=os.listdir(path)
 
             list_of_articles="𝙻𝙸𝚂𝚃 𝙾𝙵 𝙰𝚁𝚃𝙸𝙲𝙻𝙴𝚂 <br> <br>"
@@ -109,8 +110,8 @@ class View(tk.Tk):
         self.columnconfigure(2,weight=6)
         
         
-        self.top_frame=LabelFrame(self, bg="#485460", width="1")
-        self.top_frame.grid(row=0, column=0, columnspan=3,sticky = W, pady =2)
+        self.top_frame=LabelFrame(self, bg="#F37878")
+        self.top_frame.grid(row=0, column=0, columnspan=3,sticky = W, pady =2, padx=5)
 
         self.left_frame=LabelFrame(self, bg="black")
         self.left_frame.grid(row=1, column=0, rowspan=2,sticky = W, pady = 2)
@@ -146,13 +147,12 @@ class View(tk.Tk):
         img = Image.open("1.png")
         resize_img = img.resize((60 ,55))
         img = ImageTk.PhotoImage(resize_img)
-        image_label=Label(self.top_frame,image=img, padx="1000")
-        image_label.grid(row=0, column=1,sticky = W, pady = 10)
+        image_label=Label(self.top_frame,image=img)
+        image_label.grid(row=0, column=0,sticky = W,padx=60, pady = 10)
         self.image_label=img
-        heading=Label(self.top_frame, text="OUR", font="Algerian 34 ",  bg="#485460", foreground="white")
-        heading.grid(row=0, column=0,sticky = W, pady = 10, padx=290)
-        heading_1=Label(self.top_frame, text="PEDIA", font="Algerian 34", bg="#485460",foreground="white")
-        heading_1.grid(row=0, column=2,sticky = W, pady = 10, padx=290 )
+        heading=Label(self.top_frame, text="OUR - PEDIA", font="Algerian 34 ",  bg="#F37878", foreground="white")
+        heading.grid(row=0, column=1,sticky = E, pady = 10, padx=500)
+        
 
     ########################################################################################################################
 
@@ -160,12 +160,12 @@ class View(tk.Tk):
     # populating right frame #############################################################################################
 
     def initialize_right_frame(self):
-        self.text_area=scrolledtext.ScrolledText(self.right_frame,  wrap=tk.WORD ,bg="#d9d9d9", fg="black", font="arial 15", insertofftime=5, 
+        self.text_area=scrolledtext.ScrolledText(self.right_frame,  wrap=tk.WORD ,bg="#F7ECDE", fg="black", font="arial 15", insertofftime=5, 
                                             insertontime=15, width="50")
         self.text_area.grid(row=0, column=0,sticky = W, pady = 2)
         self.text_area.bind("<<Modified>>", self.inputEditorChange)
 
-        self.Label_renderer=HTMLScrolledText(self.right_frame, html="<p>Type Above to  <b>CREATE NEW</b></p>", background="#3c6e71",
+        self.Label_renderer=HTMLScrolledText(self.right_frame, html="<p>Type Above to  <b>CREATE NEW</b></p>", background="#9ED2C6",
                                                foreground="white", state="disabled", width="68")
         self.Label_renderer.grid(row=1, column=0, pady = 2)
 
@@ -179,7 +179,7 @@ class View(tk.Tk):
 
        # img1 = ImageTk.PhotoImage(Image.open("light.jpg"))
         self.Read_renderer=HTMLScrolledText(self.middle_frame, html="Here the selected article will appear",container=self, 
-                                     background="#284b63", fg="white",state="disabled", width="70", height="44")
+                                     background="#54BAB9", fg="white",state="disabled", width="70", height="44")
         self.Read_renderer.grid(sticky = W, pady = 4)
 
      #######################################################################################################################
@@ -189,13 +189,15 @@ class View(tk.Tk):
 
     def initialize_left_frame(self):
 
-        self.left_topic=Label(self.left_frame,text="𝙻𝙸𝚂𝚃 𝙾𝙵 𝙰𝚁𝚃𝙸𝙲𝙻𝙴𝚂",font="34", width=23, pady=10)
+        self.left_topic=Label(self.left_frame,text="𝙻𝙸𝚂𝚃 𝙾𝙵 𝙰𝚁𝚃𝙸𝙲𝙻𝙴𝚂",font="34", width=21, pady=10)
         self.left_topic.grid(row=0,column=0)
         self.left_label=HTMLScrolledText(self.left_frame, container=self, width="30", height="44", 
-                                        background="#3c6e71")
+                                        background="#9ED2C6")
 
         
-        path = "E:\SL_Project_mywiki\COP702_1\database_SL"
+        
+        dir = os.path.dirname(os.path.abspath(__file__))
+        path = dir+"\database_SL"
         list_of_articles=self.controller.getDirectory()
         setHTML = ""
         for x in list_of_articles:

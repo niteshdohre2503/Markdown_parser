@@ -16,7 +16,7 @@ class Controller():
     
     def __init__(self): 
         self.dir_list=[]
-        self.model=Model()
+        self.model=Model() 
         self.view=View(self)
 
 
@@ -52,8 +52,10 @@ class Controller():
             with open(path, 'w') as f:
                 f.write(self.text_area.get('1.0', tk.END))
             
-            # for updating the list of articles on left frame
-            path="E:\SL_Project_mywiki\COP702_1\database_SL"
+
+            dir = os.path.dirname(os.path.abspath(__file__))
+            
+            path = dir+"\database_SL"
             dir_list=os.listdir(path)
 
             list_of_articles="𝙻𝙸𝚂𝚃 𝙾𝙵 𝙰𝚁𝚃𝙸𝙲𝙻𝙴𝚂 <br> <br>"

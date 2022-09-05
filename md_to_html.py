@@ -26,9 +26,12 @@ def reg(result):
     subst_i = "<em>\\3</em>"
 
     #ordered list
-    regex_ol = r"(^(\d+\.\s+)(.*))"
-    subst_ol = "<li>\\1<li>"
+    # regex_ol = r"(^(\s*)(\d+\.\s+)(.*))"
+    # subst_ol = "<p>\\1</p>"
 
+    #unordered list
+    regex_ul = r"(^(\W{1})(\s)(.*)(?:$)?)+"
+    subst_ul = "<ul>\\n\\4</ul>\\n"
    
     
 
@@ -38,7 +41,6 @@ def reg(result):
     result = re.sub(regex_ib, subst_ib, result, 0, re.MULTILINE)
     result = re.sub(regex_b, subst_b, result, 0, re.MULTILINE)
     result = re.sub(regex_i, subst_i, result, 0, re.MULTILINE)
-    result = re.sub(regex_ol, subst_ol, result, 0, re.MULTILINE)
-
+    result = re.sub(regex_ul, subst_ul, result, 0, re.MULTILINE)
     
     return result

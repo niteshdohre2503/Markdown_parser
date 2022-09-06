@@ -15,7 +15,8 @@ class Model():
         self.controller=controller
         
         dir = os.path.dirname(os.path.abspath(__file__))
-        self.path = dir+"\database_SL"
+        self.path = r"{0}\database_SL\\".format(dir)
+        self.path=self.path.replace("\\","\\\\")
 
     def fetchDirectory(self):
         dir_list=os.listdir(self.path)
@@ -34,6 +35,10 @@ class Model():
         return stuff
     
     def generate_html(self,file_path):
-        file_name = file_path[49:-3]
+        i=len(file_path)-1
+        while file_path[i]!="\\":
+            i=i-1
+        file_name = file_path[i+1:-3]
+        print("\n"+file_name)
         stuff = self.fetch_text(file_path)
         return new_reg(stuff,file_name)

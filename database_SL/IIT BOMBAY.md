@@ -1,0 +1,11 @@
+# IIT BOMBAY
+
+
+IIT Bombay was the second Indian Institute of Technology to be established in 1958 with assistance from UNESCO and with funds contributed by the Soviet Union. UNESCO agreed to provide equipment and technical experts mainly from the Soviet Union, while the Government of India accepted the responsibility for all other expenses including the cost of the building project and recurring expenses. The site chosen for the institute was Powai with an area of 550 acres (2.2 km2) which was given by the then Bombay State Government. While construction was being completed, the first academic session of the Institute opened on 25 July 1958, in its temporary home at the Synthetic and Art Silk Mills Research Association (SASMIRA) building in Worli with 100 students. The following is the present position regarding the assistance received from UNESCO under the UN Expanded Programme of Technical Assistance:
+
+Equipment costing Rs.57,35,000 has so far been received (USSR由s.55,50,000; UK由s.1,50,000; USA由s.18,000 and Germany由s.19,000)
+12 Progressors (10 Russians, 1 American and 1 Yugoslavian) and 3 Russians Translators are working at the Institution.
+For advanced training in USSR, 4 Indian teachers were deputed in 1958 and 6 more teachers was selected.[10]
+These students were selected from over 3,400 applicants for admission to the first year undergraduate engineering programmes of Aerospace, Chemical, Civil, Computer, Electrical, Engineering Physics, Energy, Mechanical, Metallurgical Engineering, and MSc Chemistry. One of the main objectives of establishing the institute was to develop facilities for studies in a variety of specialized engineering and technological sciences. The need for establishing adequate facilities for postgraduate studies and research was kept uppermost in mind in the founding years. While the institute was functioning provisionally at Worli, an effort was made to expedite the progress of the building project at its permanent location and Jawaharlal Nehru laid the foundation stone of the Institute at Powai on 10 March 1959.
+
+On July 9, 2018, IIT Bombay was conferred the status of Institute of Eminence by the Ministry of Human Resources & Development, along with 5 other institutes in India which would provide it additional autonomy and government funds.[11][12]

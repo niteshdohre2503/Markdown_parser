@@ -26,16 +26,14 @@ def new_reg(result, not_to_link):
     regex_i = r"(\*)(\b)([^\*]*)(\b)(\*)"
     subst_i = "<em>\\3</em>"
 
-    #ordered list
-    # regex_ol = r"(^(\d+\.)(\s)(.*)(?:$)?)+"
-    # subst_ol = "<p>\\1</p>"
-
+    #unordered list 
     regex_ul = r"(^(\W{1})(\s)(.*)(?:$)?)+"
     subst_ul = "<ul>\\n\\4</ul>\\n"
     
     #linking while reading
-    path=r'E:\\SL_Project_mywiki\\Markdown_parser\\database_SL\\'
-    dir_list=os.listdir(path)
+    path=os.path.dirname(os.path.abspath(__file__))
+    path = r"{0}\database_SL\\".format(path)
+    path=path.replace("\\","\\\\")
     dir_list=os.listdir(path)
     
     # absolute names of the files, removing ".md" extension from the name
@@ -55,7 +53,6 @@ def new_reg(result, not_to_link):
     result = re.sub(regex_ib, subst_ib, result, 0, re.MULTILINE)
     result = re.sub(regex_b, subst_b, result, 0, re.MULTILINE)
     result = re.sub(regex_i, subst_i, result, 0, re.MULTILINE)
-    #result = re.sub(regex_ol, subst_ol, result, 0, re.MULTILINE)
     result = re.sub(regex_ul, subst_ul, result, 0, re.MULTILINE)
     
     return result

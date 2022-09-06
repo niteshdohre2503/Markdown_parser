@@ -55,7 +55,8 @@ class Controller():
 
             dir = os.path.dirname(os.path.abspath(__file__))
             
-            path = dir+"\database_SL"
+            path = r"{0}\database_SL\\".format(dir)
+            path=path.replace("\\","\\\\")
             dir_list=os.listdir(path)
 
             list_of_articles="𝙻𝙸𝚂𝚃 𝙾𝙵 𝙰𝚁𝚃𝙸𝙲𝙻𝙴𝚂 <br> <br>"

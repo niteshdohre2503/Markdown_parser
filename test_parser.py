@@ -19,6 +19,10 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(md_to_html.reg("*Heading is 2*"), "<em>Heading is 2</em>")
         self.assertEqual(md_to_html.reg("*SomeText*"), "<em>SomeText</em>")
 
+    def test_bolditalic(self):
+        self.assertEqual(md_to_html.reg("**Heading is 2**"), "<em>Heading is 2</em>")
+        self.assertEqual(md_to_html.reg("**SomeText**"), "<em>SomeText</em>")
+
 
 
     

@@ -12,15 +12,16 @@ from md_to_html import reg
 class Finally(tk.Tk):
 
 
-    def __init__(self):
+    def __init__(self): 
         super().__init__()
         self.title("MY WIKI")
         self.geometry("1460x820")
         self.wm_iconbitmap("1.ico")
 
         
-        self.edit_this_var=None
-        self.edit=None
+        self.edit_this_var=""
+        self.edit=False
+        
 
         self.initializeFrames()
         self.initialize_top_frame()
@@ -37,17 +38,31 @@ class Finally(tk.Tk):
 
 
 
-    def save_file_as(self):    
-        try:
-            path = filedialog.asksaveasfile(filetypes = (("MD File", "*.md"), ("All files", "*.*"))).name
-            self.title('Notepad - ' + path)
+    def save_file_as(self):   
+        if self.edit!=True:
+            try:
+                path = filedialog.asksaveasfile(filetypes = (("MD File", "*.md"),("All files", "*.*"))).name
+                self.title('Article - ' + path)
+            
+            except:
+                return   
+            
+            with open(path, 'w') as f:
+                f.write(self.text_area.get('1.0', tk.END))
+        else:
+            self.edit=False
+            
+           
+            with open(self.edit_this_var, 'r+') as f:
+                
+                
+                f.seek(0) 
+                f.truncate() 
+                
+                f.write(self.text_area.get('1.0', tk.END))
+            self.text_area.delete(1.0, END)
+    
         
-        except:
-            return   
-        
-        with open(path, 'w') as f:
-            f.write(self.text_area.get('1.0', tk.END))
-
 
     def inputEditorChange(self,event):
         self.text_area.edit_modified(0)
@@ -56,11 +71,13 @@ class Finally(tk.Tk):
         self.Label_renderer.set_html(html)
 
     def edit_file(self):
+
        if self.edit==True:
-            self.edit_this_var=open(self.edit_this_var,'r' )
-            stuff=self.edit_this_var.read()
+            to_read=open(self.edit_this_var,'r' )
+            stuff=to_read.read()
             self.text_area.delete(1.0, END)
             self.text_area.insert(1.0,stuff)
+            to_read.close()
 
 
     # frames ###############################################################################################################
@@ -103,6 +120,7 @@ class Finally(tk.Tk):
 
 
         self.config(menu=mainmenu)
+       
     #######################################################################################################################
 
 
@@ -122,7 +140,7 @@ class Finally(tk.Tk):
     #######################################################################################################################
     def initialize_middle_frame(self):
         
-        self.Read_renderer=HTMLScrolledText(self.middle_frame, html="Here the selected article will appear",container=self, width=300, height=750, 
+        self.Read_renderer=HTMLScrolledText(self.middle_frame, html="Here the selected article will appear",container=self, 
                                      background="lightpink", fg="white",state="disabled")
         self.Read_renderer.pack()
 

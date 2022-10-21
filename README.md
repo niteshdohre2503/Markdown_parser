@@ -1,3 +1,3 @@
 # Markdown_parser
 
-TO run the software, run controller.py file.
+To run the software, run controller.py file.
